@@ -1,4 +1,4 @@
-package com.wcci.virtualPetAPI;
+package com.wcci.virtualPetAPI.entities;
 
 public class VirtualPet {
     //Fields
