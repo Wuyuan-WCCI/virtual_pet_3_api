@@ -1,33 +1,55 @@
 package com.wcci.virtualPetAPI.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class OrganicDog extends Organic {
     //Fields
+    @Id
+    @GeneratedValue
+    private long id;
     protected String petType = "Dog";
-    protected int cageWaste = 0;
+    protected boolean hasBeenWalked;
+    protected boolean isCageClean;
 
-    @Override
-    public void tick() {
-        age += 1;
-        exhaustion += 1;
-        waterNeed += 1;
-        foodNeed += 1;
-        cageWaste += 1;
-        checkPetHealth();
-        checkOrganicHealth();
+    @ManyToOne
+    private VirtualPetShelter organicShelterDog;
+
+    //Constructor
+    public OrganicDog(String name, String description,
+    int exhaustion, int happiness, int waterNeed, int foodNeed,
+    boolean hasBeenWalked, boolean isCageClean,
+    VirtualPetShelter organicShelterDog) {
+        super(name, description, exhaustion, happiness,
+        waterNeed, foodNeed);
+        this.hasBeenWalked = hasBeenWalked;
+        this.isCageClean = isCageClean;
+        this.organicShelterDog = organicShelterDog;
     }
 
-    //Getters and Setters
+    //Getter Methods
+    public long getId() {
+        return id;
+    }
+
     @Override
     public String getPetType() {
         return petType;
     }
 
-    public int getCageWaste() {
-        return cageWaste;
+    public boolean getHasBeenWalked() {
+        return hasBeenWalked;
     }
 
-    public void setCageWaste(int cageWaste) {
-        this.cageWaste = cageWaste;
+    public boolean isCageClean() {
+        return isCageClean;
     }
-    
+
+    public VirtualPetShelter getOrganicShelterDog() {
+        return organicShelterDog;
+    }
+
 }
