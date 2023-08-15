@@ -8,11 +8,7 @@ public class VirtualPetApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(VirtualPetApiApplication.class, args);
-		
-		System.out.println("hello");
+
 	}
 
-	
-
-	
 }

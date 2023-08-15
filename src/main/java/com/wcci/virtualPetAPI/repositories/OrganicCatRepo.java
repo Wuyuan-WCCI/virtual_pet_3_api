@@ -7,5 +7,5 @@ import com.wcci.virtualPetAPI.entities.OrganicCat;
 
 @Repository
 public interface OrganicCatRepo extends JpaRepository<OrganicCat, String> {
-    
+
 }

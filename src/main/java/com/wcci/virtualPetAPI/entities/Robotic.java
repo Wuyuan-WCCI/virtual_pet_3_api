@@ -4,21 +4,21 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public class Robotic extends VirtualPet {
-    //Fields
+    // Fields
     protected String petType = "undefined robotic";
     protected int oilNeed;
     protected int maintenanceNeed;
     protected int roboticHealth;
 
-    //Constructor
+    // Constructor
     public Robotic(String name, String description,
-    int exhaustion, int happiness, int oilNeed, int maintenanceNeed) {
+            int exhaustion, int happiness, int oilNeed, int maintenanceNeed) {
         super(name, description, exhaustion, happiness);
         this.oilNeed = oilNeed;
         this.maintenanceNeed = maintenanceNeed;
     }
 
-    //Getter Methods
+    // Getter Methods
     @Override
     public String getPetType() {
         return petType;

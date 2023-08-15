@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class RoboticDog extends Robotic {
-    //Fields
+    // Fields
     @Id
     @GeneratedValue
     private long id;
@@ -17,17 +17,17 @@ public class RoboticDog extends Robotic {
     @ManyToOne
     private VirtualPetShelter roboticShelterDog;
 
-    //Constructor
+    // Constructor
     public RoboticDog(String name, String description,
-    int exhaustion, int happiness, int oilNeed, int maintenanceNeed,
-    boolean hasBeenWalked, VirtualPetShelter roboticShelterDog) {
+            int exhaustion, int happiness, int oilNeed, int maintenanceNeed,
+            boolean hasBeenWalked, VirtualPetShelter roboticShelterDog) {
         super(name, description, exhaustion, happiness,
-        oilNeed, maintenanceNeed);
+                oilNeed, maintenanceNeed);
         this.hasBeenWalked = hasBeenWalked;
         this.roboticShelterDog = roboticShelterDog;
     }
 
-    //Getter Methods
+    // Getter Methods
     public long getId() {
         return id;
     }

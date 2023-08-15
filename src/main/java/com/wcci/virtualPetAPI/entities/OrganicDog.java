@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class OrganicDog extends Organic {
-    //Fields
+    // Fields
     @Id
     @GeneratedValue
     private long id;
@@ -18,19 +18,19 @@ public class OrganicDog extends Organic {
     @ManyToOne
     private VirtualPetShelter organicShelterDog;
 
-    //Constructor
+    // Constructor
     public OrganicDog(String name, String description,
-    int exhaustion, int happiness, int waterNeed, int foodNeed,
-    boolean hasBeenWalked, boolean isCageClean,
-    VirtualPetShelter organicShelterDog) {
+            int exhaustion, int happiness, int waterNeed, int foodNeed,
+            boolean hasBeenWalked, boolean isCageClean,
+            VirtualPetShelter organicShelterDog) {
         super(name, description, exhaustion, happiness,
-        waterNeed, foodNeed);
+                waterNeed, foodNeed);
         this.hasBeenWalked = hasBeenWalked;
         this.isCageClean = isCageClean;
         this.organicShelterDog = organicShelterDog;
     }
 
-    //Getter Methods
+    // Getter Methods
     public long getId() {
         return id;
     }
