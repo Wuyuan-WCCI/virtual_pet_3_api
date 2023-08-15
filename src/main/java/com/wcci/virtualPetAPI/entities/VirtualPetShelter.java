@@ -5,27 +5,35 @@ import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "\"shelter\"")
 public class VirtualPetShelter {
 
     // Fields
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     private String shelterName;
 
     private boolean isLitterBoxClean;
 
-    @OneToMany
-    private ArrayList<VirtualPet> shelterPets = new ArrayList<VirtualPet>();
+    @OneToMany(mappedBy = "shelter")
+    private List<VirtualPet> shelterPets = new ArrayList<VirtualPet>();
+
+    public List<VirtualPet> getPets() {
+        return shelterPets;
+    }
 
     // Constructor
     public VirtualPetShelter(String shelterName,
-            boolean isLitterBoxClean, ArrayList<VirtualPet> shelterPets) {
+            boolean isLitterBoxClean, List<VirtualPet> shelterPets) {
         this.shelterName = shelterName;
         this.isLitterBoxClean = isLitterBoxClean;
         this.shelterPets = shelterPets;
@@ -55,7 +63,7 @@ public class VirtualPetShelter {
         return isLitterBoxClean;
     }
 
-    public ArrayList<VirtualPet> getShelterPets() {
+    public List<VirtualPet> getShelterPets() {
         return shelterPets;
     }
 

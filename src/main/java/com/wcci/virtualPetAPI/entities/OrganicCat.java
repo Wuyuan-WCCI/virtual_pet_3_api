@@ -7,7 +7,7 @@ import javax.persistence.ManyToOne;
 
 @Entity
 public class OrganicCat extends Organic {
-    //Fields
+    // Fields
     @Id
     @GeneratedValue
     private long id;
@@ -16,16 +16,16 @@ public class OrganicCat extends Organic {
     @ManyToOne
     private VirtualPetShelter organicShelterCat;
 
-    //Constructor
+    // Constructor
     public OrganicCat(String name, String description,
-    int exhaustion, int happiness, int waterNeed, int foodNeed,
-    VirtualPetShelter organicShelterCat) {
+            int exhaustion, int happiness, int waterNeed, int foodNeed,
+            VirtualPetShelter organicShelterCat) {
         super(name, description, exhaustion, happiness,
-        waterNeed, foodNeed);
+                waterNeed, foodNeed);
         this.organicShelterCat = organicShelterCat;
     }
 
-    //Getter Methods
+    // Getter Methods
     public long getId() {
         return id;
     }

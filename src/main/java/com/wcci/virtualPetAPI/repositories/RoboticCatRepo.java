@@ -7,5 +7,5 @@ import com.wcci.virtualPetAPI.entities.RoboticCat;
 
 @Repository
 public interface RoboticCatRepo extends JpaRepository<RoboticCat, String> {
-    
+
 }

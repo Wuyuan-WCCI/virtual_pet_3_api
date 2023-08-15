@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.transaction.Transactional;
 
@@ -41,7 +40,6 @@ public class Volunteer {
     @ManyToMany
     @JoinTable(name = "volunteer_shelter", joinColumns = @JoinColumn(name = "volunteer_id"), inverseJoinColumns = @JoinColumn(name = "shelter_id"))
     private List<VirtualPetShelter> shelters = new ArrayList<>();
-    private VirtualPetShelter shelter;
 
     public Volunteer() {
 
@@ -53,7 +51,7 @@ public class Volunteer {
         this.email = email;
         this.age = age;
         this.shelters = shelters;
-        this.shelter = shelter;
+
     }
 
     public long getId() {
@@ -88,12 +86,8 @@ public class Volunteer {
         this.email = email;
     }
 
-    public VirtualPetShelter getShelter() {
-        return shelter;
-    }
-
-    public void setShelter(VirtualPetShelter shelter) {
-        this.shelter = shelter;
+    public void setShelters(List<VirtualPetShelter> shelters) {
+        this.shelters = shelters;
     }
 
     public List<VirtualPetShelter> getShelters() {
