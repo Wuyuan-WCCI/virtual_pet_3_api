@@ -15,7 +15,9 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.transaction.Transactional;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "\"volunteer\"")
@@ -24,7 +26,7 @@ public class Volunteer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "volunteer_id")
+    @Column(name = "Volunteer_id")
     private long id;
 
     @Column(name = "name")
@@ -36,9 +38,8 @@ public class Volunteer {
     @Column(name = "age")
     private int age;
 
-    @JsonIgnore
-    @ManyToMany
-    @JoinTable(name = "volunteer_shelter", joinColumns = @JoinColumn(name = "volunteer_id"), inverseJoinColumns = @JoinColumn(name = "shelter_id"))
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "volunteer_shelter_id", joinColumns = @JoinColumn(name = "volunteer_id"), inverseJoinColumns = @JoinColumn(name = "shelter_id"))
     private List<VirtualPetShelter> shelters = new ArrayList<>();
 
     public Volunteer() {
@@ -86,11 +87,12 @@ public class Volunteer {
         this.email = email;
     }
 
+    public List<VirtualPetShelter> getShelters() {
+        return shelters;
+    }
+
     public void setShelters(List<VirtualPetShelter> shelters) {
         this.shelters = shelters;
     }
 
-    public List<VirtualPetShelter> getShelters() {
-        return shelters;
-    }
 }
