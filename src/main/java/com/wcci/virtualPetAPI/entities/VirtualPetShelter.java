@@ -3,9 +3,9 @@ package com.wcci.virtualPetAPI.entities;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
@@ -17,8 +17,9 @@ public class VirtualPetShelter {
 
     // Fields
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+
+    @Column(name = "shelter_id")
+    private long shelterId;
 
     private String shelterName;
 
@@ -27,19 +28,17 @@ public class VirtualPetShelter {
     @OneToMany(mappedBy = "shelter")
     private List<VirtualPet> shelterPets = new ArrayList<VirtualPet>();
 
-    public List<VirtualPet> getPets() {
-        return shelterPets;
-    }
-
     // Constructor
-    public VirtualPetShelter(String shelterName,
-            boolean isLitterBoxClean, List<VirtualPet> shelterPets) {
+    public VirtualPetShelter(long shelterId, String shelterName,
+            boolean isLitterBoxClean, List<VirtualPet> shelterPets, List<Volunteer> volunteers) {
+        this.shelterId = shelterId;
         this.shelterName = shelterName;
         this.isLitterBoxClean = isLitterBoxClean;
         this.shelterPets = shelterPets;
+        this.volunteers = volunteers;
     }
 
-    @ManyToMany(mappedBy = "shelters")
+    @ManyToMany(mappedBy = "shelters", fetch = FetchType.LAZY)
     private List<Volunteer> volunteers = new ArrayList<>();
 
     public List<Volunteer> getVolunteers() {
@@ -51,6 +50,15 @@ public class VirtualPetShelter {
     }
 
     // Getter Methods
+
+    public long getShelterId() {
+        return shelterId;
+    }
+
+    public void setShelterId(long shelterId) {
+        this.shelterId = shelterId;
+    }
+
     public String getShelterName() {
         return shelterName;
     }
@@ -65,6 +73,13 @@ public class VirtualPetShelter {
 
     public List<VirtualPet> getShelterPets() {
         return shelterPets;
+    }
+
+    @Override
+    public String toString() {
+        return "\nShelter: ID = " + shelterId + ", \nName = " + shelterName + " \nLitter box clean: " + isLitterBoxClean
+                + " \n"
+                + volunteers;
     }
 
 }
