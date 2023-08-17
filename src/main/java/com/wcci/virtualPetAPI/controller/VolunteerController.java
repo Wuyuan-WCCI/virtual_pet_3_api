@@ -21,17 +21,18 @@ public class VolunteerController {
     VolunteerService volunteerSer;
 
     @PostMapping("/volunteer/new")
-    public void addVolunteer(@RequestBody Volunteer v) {
-        this.volunteerSer.addVolunteer(v);
+    public void addVolunteer(@RequestBody Volunteer volunteer) {
+        this.volunteerSer.addVolunteer(volunteer);
     }
 
     @PutMapping("/volunteer/{id}")
-    public Volunteer findById(@PathVariable long id, @RequestBody Volunteer updateVolunteer) {
+    public Volunteer modifyVolunteer(@PathVariable long id, @RequestBody Volunteer updateVolunteer) {
         return this.volunteerSer.updateVolunteer(id, updateVolunteer);
     }
 
+    // Delete Volunteer by name
     @DeleteMapping("/volunteer/delete/{name}")
-    public void removeVolunteer(@PathVariable String name) {
+    public void deleteVolunteer(@PathVariable String name) {
         this.volunteerSer.removeVolunteer(name);
     }
 
@@ -46,6 +47,7 @@ public class VolunteerController {
 
     }
 
+    // Find volunteer by name
     @GetMapping("/volunteer/name/{name}")
     public Volunteer getVolunteerByName(@PathVariable String name) {
         return this.volunteerSer.getVolunteerByName(name);

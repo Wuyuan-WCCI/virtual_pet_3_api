@@ -17,8 +17,8 @@ public class VolunteerService {
     @Autowired
     private VolunteerRepo volunteerRepo;
 
-    public void addVolunteer(Volunteer v) {
-        this.volunteerRepo.save(v);
+    public void addVolunteer(Volunteer volunteer) {
+        this.volunteerRepo.save(volunteer);
     }
 
     public List<Volunteer> getAllVolunteers() {
