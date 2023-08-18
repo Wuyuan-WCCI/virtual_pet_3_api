@@ -15,23 +15,22 @@ import com.wcci.virtualPetAPI.repositories.RoboticDogRepo;
 import com.wcci.virtualPetAPI.service.RoboticDogService;
 
 @RestController
-@RequestMapping("/roboticdog")
 public class RoboticDogController {
 
     @Autowired
     RoboticDogService roboDogServ;
 
-    @GetMapping("/roboticdogs")
+    @GetMapping("/roboticdog/roboticdogs")
     public List<RoboticDog> findRoboticDogs() {
         return this.roboDogServ.getAllRoboticDogs();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/roboticdog/{id}")
     public RoboticDog getRoboticDogById(@PathVariable long id) {
         return this.roboDogServ.getRoboticDogById(id);
     }
 
-    @GetMapping("/name")
+    @GetMapping("/roboticdog/name/{name}")
     public RoboticDog getRoboticDogByName(@PathVariable String name) {
         return this.roboDogServ.getRoboticDogByName(name);
     }

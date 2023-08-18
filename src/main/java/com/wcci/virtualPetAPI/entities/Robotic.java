@@ -18,6 +18,10 @@ public class Robotic extends VirtualPet {
         this.maintenanceNeed = maintenanceNeed;
     }
 
+    public Robotic() {
+
+    }
+
     // Getter Methods
     @Override
     public String getPetType() {

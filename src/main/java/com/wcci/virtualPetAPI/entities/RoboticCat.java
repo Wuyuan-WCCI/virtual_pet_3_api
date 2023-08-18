@@ -24,6 +24,10 @@ public class RoboticCat extends Robotic {
         this.roboticShelterCat = roboticShelterCat;
     }
 
+    public RoboticCat() {
+
+    }
+
     // Getter Methods
     public long getId() {
         return id;

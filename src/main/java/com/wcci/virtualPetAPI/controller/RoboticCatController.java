@@ -16,23 +16,22 @@ import com.wcci.virtualPetAPI.repositories.RoboticCatRepo;
 import com.wcci.virtualPetAPI.service.RoboticCatService;
 
 @RestController
-@RequestMapping("/roboticcat")
 public class RoboticCatController {
 
     @Autowired
     RoboticCatService roboCatServ;
 
-    @GetMapping("/roboticcats")
+    @GetMapping("/roboticcat/roboticcats")
     public List<RoboticCat> findRoboticCats() {
         return this.roboCatServ.getAllRoboticCats();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/roboticcat/{id}")
     public RoboticCat getRoboticCatById(@PathVariable long id) {
         return this.roboCatServ.getRoboticCatById(id);
     }
 
-    @GetMapping("/name")
+    @GetMapping("/roboticcat/name/{name}")
     public RoboticCat getRoboticCatByName(@PathVariable String name) {
         return this.roboCatServ.getRoboticCatByName(name);
     }

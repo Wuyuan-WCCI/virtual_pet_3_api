@@ -23,11 +23,12 @@ public class RoboticDogService {
 
     public RoboticDog getRoboticDogById(long id) {
         return this.roboDogRepo.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found: " + id));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "RoboticDog not found:  " + id));
     }
 
     public RoboticDog getRoboticDogByName(String name) {
-        return roboDogRepo.findByName(name);
+        return roboDogRepo.findByName(name)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "RoboticDog not found"));
     }
 
 }

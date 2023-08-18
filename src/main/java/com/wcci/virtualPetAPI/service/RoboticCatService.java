@@ -23,11 +23,12 @@ public class RoboticCatService {
 
     public RoboticCat getRoboticCatById(long id) {
         return this.roboCatRepo.findById(id)
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "User not found: " + id));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "RoboticCat not found: " + id));
     }
 
     public RoboticCat getRoboticCatByName(String name) {
-        return roboCatRepo.findByName(name);
+        return roboCatRepo.findByName(name)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "RoboticCat not found"));
     }
 
 }
