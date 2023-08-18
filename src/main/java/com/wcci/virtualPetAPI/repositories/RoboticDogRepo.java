@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.wcci.virtualPetAPI.entities.RoboticDog;
 
 @Repository
-public interface RoboticDogRepo extends JpaRepository<RoboticDog, String> {
+public interface RoboticDogRepo extends JpaRepository<RoboticDog, Long> {
 
 }

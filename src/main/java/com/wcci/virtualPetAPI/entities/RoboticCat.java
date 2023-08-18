@@ -20,8 +20,7 @@ public class RoboticCat extends Robotic {
     public RoboticCat(String name, String description,
             int exhaustion, int happiness, int oilNeed, int maintenanceNeed,
             VirtualPetShelter roboticShelterCat) {
-        super(name, description, exhaustion, happiness,
-                oilNeed, maintenanceNeed);
+        super(name, description, exhaustion, happiness, oilNeed, maintenanceNeed);
         this.roboticShelterCat = roboticShelterCat;
     }
 
