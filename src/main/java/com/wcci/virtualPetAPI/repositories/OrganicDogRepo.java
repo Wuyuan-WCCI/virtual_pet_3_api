@@ -9,5 +9,6 @@ import com.wcci.virtualPetAPI.entities.OrganicDog;
 
 @Repository
 public interface OrganicDogRepo extends JpaRepository<OrganicDog, Long> {
+    Optional<OrganicDog> findById(String name);
     Optional<OrganicDog> findByName(String name);
 }

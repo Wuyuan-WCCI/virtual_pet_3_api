@@ -1,34 +1,55 @@
 package com.wcci.virtualPetAPI.entities;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
+@Table(name = "\"organicdog\"")
+// @Transactional
 public class OrganicDog extends Organic {
+
+
     // Fields
     @Id
     @GeneratedValue
+    @Column(name = "organicdog_id")
     private long id;
+
+    @Column(name = "pet_type")
     protected String petType = "Dog";
+
+    @Column(name = "hasBeenWalked")
     protected boolean hasBeenWalked;
+
+    @Column(name = "isCageClean")   
     protected boolean isCageClean;
 
+    @JsonIgnore
     @ManyToOne
+    @JoinTable(name = "organicdog_shelter", joinColumns = @JoinColumn(name = "organicdog_id"))
     private VirtualPetShelter organicShelterDog;
 
     // Constructor
-    public OrganicDog(String name, String description,
-            int exhaustion, int happiness, int waterNeed, int foodNeed,
-            boolean hasBeenWalked, boolean isCageClean,
-            VirtualPetShelter organicShelterDog) {
+    public OrganicDog(String name, String description,int exhaustion, int happiness, int waterNeed, int foodNeed, 
+    boolean hasBeenWalked, boolean isCageClean,
+    VirtualPetShelter organicShelterDog) {
         super(name, description, exhaustion, happiness,
                 waterNeed, foodNeed);
         this.hasBeenWalked = hasBeenWalked;
         this.isCageClean = isCageClean;
         this.organicShelterDog = organicShelterDog;
     }
+
+public OrganicDog(){
+}
 
     // Getter Methods
     public long getId() {
@@ -51,18 +72,8 @@ public class OrganicDog extends Organic {
     public VirtualPetShelter getOrganicShelterDog() {
         return organicShelterDog;
     }
-    public void setId(long id) {
-        this.id = id;
-    }
-    public void setPetType(String petType) {
-        this.petType = petType;
-    }
-
     public boolean isHasBeenWalked() {
         return this.hasBeenWalked;
-    }
-    public void setHasBeenWalked(boolean hasBeenWalked) {
-        this.hasBeenWalked = hasBeenWalked;
     }
 
     public boolean isIsCageClean() {
@@ -73,11 +84,5 @@ public class OrganicDog extends Organic {
         return this.isCageClean;
     }
 
-    public void setIsCageClean(boolean isCageClean) {
-        this.isCageClean = isCageClean;
-    }
-    public void setOrganicShelterDog(VirtualPetShelter organicShelterDog) {
-        this.organicShelterDog = organicShelterDog;
-    }
 
 }

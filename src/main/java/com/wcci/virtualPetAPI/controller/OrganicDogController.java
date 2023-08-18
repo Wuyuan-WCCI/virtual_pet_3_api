@@ -5,9 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.wcci.virtualPetAPI.entities.OrganicDog;
@@ -19,18 +16,13 @@ public class OrganicDogController {
     @Autowired
     OrganicDogService organicDogSer;
 
-    @PostMapping("/organicdog/new")
-    public void addOrganicDog(@RequestBody OrganicDog oDog) {
-        this.organicDogSer.addOrganicDog(oDog);
-    }
 
-
-    @GetMapping("/organicdogs")
+    @GetMapping("/organicdog/organicdogs")
     public List<OrganicDog> getOrganicDogs() {
         return organicDogSer.getAllOrganicDogs();
     }
 
-    @GetMapping("/c/{id}")
+    @GetMapping("/organicdog/organicdogs/{id}")
     public OrganicDog getDogById(@PathVariable long id) {
         return this.organicDogSer.getOrganicDogById(id);
     }
@@ -39,4 +31,6 @@ public class OrganicDogController {
     public OrganicDog getDogByName(@PathVariable String name) {
         return this.organicDogSer.getOrganicDogByName(name);
     }
+
+
 }

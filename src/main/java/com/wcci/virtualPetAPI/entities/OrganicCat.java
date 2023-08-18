@@ -25,6 +25,7 @@ public class OrganicCat extends Organic {
         this.organicShelterCat = organicShelterCat;
     }
 
+
     // Getter Methods
     public long getId() {
         return id;

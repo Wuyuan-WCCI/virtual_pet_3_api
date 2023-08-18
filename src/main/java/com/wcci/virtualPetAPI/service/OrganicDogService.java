@@ -17,9 +17,7 @@ public class OrganicDogService {
     @Autowired
     private OrganicDogRepo organicDogRepo;
 
-    public void addOrganicDog(OrganicDog oDog) {
-        this.organicDogRepo.save(oDog);
-    }
+
 
     public List<OrganicDog> getAllOrganicDogs() {
         return this.organicDogRepo.findAll();
@@ -30,8 +28,11 @@ public class OrganicDogService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Organic Dog not found"));
     }
 
+
     public OrganicDog getOrganicDogById(long id) {
         return this.organicDogRepo.findById(id)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Organic Dog not found: " + id));
     }
+
+
 }
