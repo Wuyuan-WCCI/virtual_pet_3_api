@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.wcci.virtualPetAPI.entities.VirtualPetShelter;
 import com.wcci.virtualPetAPI.service.VirtualPetShelterService;
 
@@ -25,17 +24,22 @@ public class VirtualPetShelterController {
         return virtualPetShelterSer.getShelterById(id);
     }
 
-    @PostMapping("/shelter/new")
+    @GetMapping("/shelters/name/{name}")
+    public VirtualPetShelter getShelterByName(@PathVariable String name) {
+        return this.virtualPetShelterSer.getShelterByName(name);
+    }
+
+    @PostMapping("/shelters/new")
     public void addShelter(@RequestBody VirtualPetShelter shelter) {
         this.virtualPetShelterSer.createShelter(shelter);
     }
 
-    @DeleteMapping("/shelter/delete/{id}")
+    @DeleteMapping("/shelters/delete/{id}")
     public void removeShelter(@PathVariable long id) {
         this.virtualPetShelterSer.deleteShelter(id);
     }
 
-    @PutMapping("/shelter/{id}")
+    @PutMapping("/shelters/{id}")
     public VirtualPetShelter findShelterById(@PathVariable long id,
             @RequestBody VirtualPetShelter updateVirtualPetShelter) {
         return this.virtualPetShelterSer.updatesShelter(id, updateVirtualPetShelter);
