@@ -25,6 +25,11 @@ public class VirtualPetShelterService {
 
     }
 
+    public VirtualPetShelter getShelterByName(String shelterName) {
+        return shelterRepo.findByShelterName(shelterName)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Volunteer not found"));
+    }
+
     public List<VirtualPetShelter> getAllShelters() {
         return this.shelterRepo.findAll();
     }

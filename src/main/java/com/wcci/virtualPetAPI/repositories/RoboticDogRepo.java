@@ -10,7 +10,6 @@ import com.wcci.virtualPetAPI.entities.RoboticDog;
 
 @Repository
 public interface RoboticDogRepo extends JpaRepository<RoboticDog, Long> {
-
-    Optional<RoboticDog> findByName(String name);
+Optional<RoboticDog> findByName(String name);
 
 }

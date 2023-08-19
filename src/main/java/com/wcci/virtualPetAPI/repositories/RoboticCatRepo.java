@@ -11,7 +11,6 @@ import com.wcci.virtualPetAPI.entities.Volunteer;
 
 @Repository
 public interface RoboticCatRepo extends JpaRepository<RoboticCat, Long> {
-
-    Optional<RoboticCat> findByName(String name);
+Optional<RoboticCat> findByName(String name);
 
 }
