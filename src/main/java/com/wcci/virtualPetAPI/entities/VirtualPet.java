@@ -50,6 +50,10 @@ public class VirtualPet {
         return name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public int getExhaustion() {
         return exhaustion;
     }
