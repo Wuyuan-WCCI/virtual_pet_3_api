@@ -9,6 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+
+import com.wcci.virtualPetAPI.entities.RoboticCat;
+import com.wcci.virtualPetAPI.entities.RoboticDog;
+import com.wcci.virtualPetAPI.entities.VirtualPetShelter;
+import com.wcci.virtualPetAPI.entities.Volunteer;
+import com.wcci.virtualPetAPI.repositories.RoboticCatRepo;
+import com.wcci.virtualPetAPI.repositories.RoboticDogRepo;
 import com.wcci.virtualPetAPI.entities.OrganicCat;
 import com.wcci.virtualPetAPI.entities.OrganicDog;
 import com.wcci.virtualPetAPI.entities.VirtualPetShelter;
@@ -26,6 +33,12 @@ public class Populator implements CommandLineRunner {
     @Autowired
     private VirtualPetShelterRepo shelterRepo;
 
+    @Autowired
+    private RoboticDogRepo roboDogRepo;
+
+    @Autowired
+    private RoboticCatRepo roboCatRepo;
+  
     @Autowired
     private OrganicDogRepo organicDogRepo;
 
@@ -104,6 +117,14 @@ public class Populator implements CommandLineRunner {
         organicCatRepo.save(organicCat2);
         shelter2.getShelterPets().add(organicCat2);
 
+
+        RoboticDog roboticDog1 = new RoboticDog("Cookie", "Loves the zoomies", 0, 0, 0, 0, false, shelter5);
+        roboDogRepo.save(roboticDog1);
+        shelter5.getShelterPets().add(roboticDog1);
+
+        RoboticCat roboticCat1 = new RoboticCat("Cloe", "Loves Naps", 0, 0, 0, 0, shelter5);
+        roboCatRepo.save(roboticCat1);
+        shelter5.getShelterPets().add(roboticCat1);
 
     }
 
