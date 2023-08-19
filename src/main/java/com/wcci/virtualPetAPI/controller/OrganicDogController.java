@@ -32,5 +32,30 @@ public class OrganicDogController {
         return this.organicDogSer.getOrganicDogByName(name);
     }
 
+    @GetMapping("/organicdog/description/{name}")
+    public String getDescriptionByName(@PathVariable String name) {
+        return this.organicDogSer.getOrganicDogByName(name).getDescription();
+    }
+
+    @GetMapping("/organicdog/exhaustion/{name}")
+    public int getExhaustionByName(@PathVariable String name) {
+        return this.organicDogSer.getOrganicDogByName(name).getExhaustion();
+    }
+
+    @GetMapping("/organicdog/happiness/{name}")
+    public int getHappinessByName(@PathVariable String name) {
+        return this.organicDogSer.getOrganicDogByName(name).getHappiness();
+    }
+
+    @GetMapping("/organicdog/waterneed/{name}")
+    public int getWaterNeedByName(@PathVariable String name) {
+        return this.organicDogSer.getOrganicDogByName(name).getWaterNeed();
+    }
+
+    @GetMapping("/organicdog/foodneed/{name}")
+    public int getFoodNeedByName(@PathVariable String name) {
+        return this.organicDogSer.getOrganicDogByName(name).getFoodNeed();
+    }
+
 
 }

@@ -88,11 +88,11 @@ public class Populator implements CommandLineRunner {
 
         volunteerRepo.saveAll(volunteers);
 
-        OrganicDog organicDog1 = new OrganicDog("Rocky", "friendly", 0, 0, 0, 0, false, true, shelter2);
+        OrganicDog organicDog1 = new OrganicDog("Rocky", "friendly", 8, 3, 7, 8, false, true, shelter2);
         organicDogRepo.save(organicDog1);
         shelter2.getShelterPets().add(organicDog1);
 
-        OrganicDog organicDog2 = new OrganicDog("Ali", "quiet", 0, 0, 0, 0, false, true, shelter2);
+        OrganicDog organicDog2 = new OrganicDog("Ali", "quiet", 8, 3, 7, 8, false, true, shelter2);
         organicDogRepo.save(organicDog2);
         shelter2.getShelterPets().add(organicDog2);
 
