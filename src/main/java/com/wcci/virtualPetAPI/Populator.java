@@ -9,8 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import com.wcci.virtualPetAPI.entities.OrganicDog;
 import com.wcci.virtualPetAPI.entities.VirtualPetShelter;
 import com.wcci.virtualPetAPI.entities.Volunteer;
+import com.wcci.virtualPetAPI.repositories.OrganicDogRepo;
 import com.wcci.virtualPetAPI.repositories.VirtualPetShelterRepo;
 import com.wcci.virtualPetAPI.repositories.VolunteerRepo;
 
@@ -21,6 +23,9 @@ public class Populator implements CommandLineRunner {
 
     @Autowired
     private VirtualPetShelterRepo shelterRepo;
+
+    @Autowired
+    private OrganicDogRepo organicDogRepo;
 
     public void run(String... args) throws Exception {
         List<VirtualPetShelter> shelters = new ArrayList<>();
@@ -77,6 +82,16 @@ public class Populator implements CommandLineRunner {
         }
 
         volunteerRepo.saveAll(volunteers);
+
+        OrganicDog organicDog1 = new OrganicDog("Rocky", "friendly", 0, 0, 0, 0, false, true, shelter2);
+        organicDogRepo.save(organicDog1);
+        shelter2.getShelterPets().add(organicDog1);
+
+        OrganicDog organicDog2 = new OrganicDog("Ali", "quiet", 0, 0, 0, 0, false, true, shelter2);
+        organicDogRepo.save(organicDog2);
+        shelter2.getShelterPets().add(organicDog2);
+
+     
 
     }
 

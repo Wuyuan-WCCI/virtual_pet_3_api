@@ -11,11 +11,13 @@ public class Organic extends VirtualPet {
     protected int organicHealth;
 
     // Constructor
-    public Organic(String name, String description,
-            int exhaustion, int happiness, int waterNeed, int foodNeed) {
+    public Organic(String name, String description,int exhaustion, int happiness, int waterNeed, int foodNeed) {
         super(name, description, exhaustion, happiness);
         this.waterNeed = waterNeed;
         this.foodNeed = foodNeed;
+    }
+    
+    public Organic(){
     }
 
     // Getter Methods
