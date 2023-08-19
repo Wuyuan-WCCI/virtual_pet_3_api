@@ -9,9 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import com.wcci.virtualPetAPI.entities.OrganicCat;
 import com.wcci.virtualPetAPI.entities.OrganicDog;
 import com.wcci.virtualPetAPI.entities.VirtualPetShelter;
 import com.wcci.virtualPetAPI.entities.Volunteer;
+import com.wcci.virtualPetAPI.repositories.OrganicCatRepo;
 import com.wcci.virtualPetAPI.repositories.OrganicDogRepo;
 import com.wcci.virtualPetAPI.repositories.VirtualPetShelterRepo;
 import com.wcci.virtualPetAPI.repositories.VolunteerRepo;
@@ -26,6 +28,9 @@ public class Populator implements CommandLineRunner {
 
     @Autowired
     private OrganicDogRepo organicDogRepo;
+
+    @Autowired
+    private OrganicCatRepo organicCatRepo;
 
     public void run(String... args) throws Exception {
         List<VirtualPetShelter> shelters = new ArrayList<>();
@@ -91,7 +96,14 @@ public class Populator implements CommandLineRunner {
         organicDogRepo.save(organicDog2);
         shelter2.getShelterPets().add(organicDog2);
 
-     
+        OrganicCat organicCat1 = new OrganicCat("Garfield", "loves lasagna, hates Mondays", 9, 2, 7, 7, shelter1);
+        organicCatRepo.save(organicCat1);
+        shelter1.getShelterPets().add(organicCat1);
+
+        OrganicCat organicCat2 = new OrganicCat("Hobbs", "enjoys time travel and building snowmen", 3, 9, 4, 4, shelter2);
+        organicCatRepo.save(organicCat2);
+        shelter2.getShelterPets().add(organicCat2);
+
 
     }
 
