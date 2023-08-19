@@ -31,7 +31,7 @@ public class VirtualPetService {
     }
 
     public VirtualPet getPetByName(String name) {
-        return VirtualPetRepo.findByPetName(name)
+        return virtualPetRepo.findByName(name)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Volunteer not found"));
     }
 

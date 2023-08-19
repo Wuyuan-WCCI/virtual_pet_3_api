@@ -9,8 +9,5 @@ import com.wcci.virtualPetAPI.entities.VirtualPet;
 
 @Repository
 public interface VirtualPetRepo extends JpaRepository<VirtualPet, Long> {
-    static Optional<VirtualPet> findByPetName(String name) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findByPetName'");
-    }
+    Optional<VirtualPet> findByName(String name);
 }

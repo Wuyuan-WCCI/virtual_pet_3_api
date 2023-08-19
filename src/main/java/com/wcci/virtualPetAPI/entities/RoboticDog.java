@@ -20,11 +20,14 @@ public class RoboticDog extends Robotic {
     // Constructor
     public RoboticDog(String name, String description,
             int exhaustion, int happiness, int oilNeed, int maintenanceNeed,
-            boolean hasBeenWalked, VirtualPetShelter roboticShelterDog) {
+            boolean hasBeenWalked, String shelterName) {
         super(name, description, exhaustion, happiness,
-                oilNeed, maintenanceNeed);
+                oilNeed, maintenanceNeed, shelterName);
         this.hasBeenWalked = hasBeenWalked;
-        this.roboticShelterDog = roboticShelterDog;
+    }
+
+    public RoboticDog() {
+
     }
 
     // Getter Methods

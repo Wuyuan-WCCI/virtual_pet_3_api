@@ -9,13 +9,18 @@ public class Robotic extends VirtualPet {
     protected int oilNeed;
     protected int maintenanceNeed;
     protected int roboticHealth;
+    protected String type = "Robotic";
 
     // Constructor
     public Robotic(String name, String description,
-            int exhaustion, int happiness, int oilNeed, int maintenanceNeed) {
-        super(name, description, exhaustion, happiness);
+            int exhaustion, int happiness, int oilNeed, int maintenanceNeed, String shelterName) {
+        super(name, description, exhaustion, happiness, shelterName);
         this.oilNeed = oilNeed;
         this.maintenanceNeed = maintenanceNeed;
+    }
+
+    public Robotic() {
+
     }
 
     // Getter Methods
@@ -35,6 +40,10 @@ public class Robotic extends VirtualPet {
     public int getRoboticHealth() {
         roboticHealth = petHealth - oilNeed - maintenanceNeed;
         return roboticHealth;
+    }
+
+    public String getType() {
+        return type;
     }
 
 }

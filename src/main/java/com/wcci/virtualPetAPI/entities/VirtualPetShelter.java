@@ -22,6 +22,15 @@ public class VirtualPetShelter {
     private long shelterId;
 
     private String shelterName;
+    private int petsInShelter;
+
+    public int getPetsInShelter() {
+        return petsInShelter;
+    }
+
+    public void setPetsInShelter(int petsInShelter) {
+        this.petsInShelter = petsInShelter;
+    }
 
     private boolean isLitterBoxClean;
 

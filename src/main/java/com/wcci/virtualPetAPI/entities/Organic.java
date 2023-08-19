@@ -9,15 +9,21 @@ public class Organic extends VirtualPet {
     protected int waterNeed;
     protected int foodNeed;
     protected int organicHealth;
+    protected String type = "Organic";
+
+    public String getType() {
+        return type;
+    }
 
     // Constructor
-    public Organic(String name, String description,int exhaustion, int happiness, int waterNeed, int foodNeed) {
-        super(name, description, exhaustion, happiness);
+    public Organic(String name, String description, int exhaustion, int happiness, int waterNeed, int foodNeed,
+            String shelterName) {
+        super(name, description, exhaustion, happiness, shelterName);
         this.waterNeed = waterNeed;
         this.foodNeed = foodNeed;
     }
-    
-    public Organic(){
+
+    public Organic() {
     }
 
     // Getter Methods

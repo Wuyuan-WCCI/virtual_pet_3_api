@@ -12,19 +12,23 @@ public class OrganicCat extends Organic {
     @GeneratedValue
     private long id;
     protected String petType = "Cat";
+    private String shelterName;
 
     @ManyToOne
-    private VirtualPetShelter organicShelterCat;
+    private VirtualPetShelter shelter;
 
     // Constructor
     public OrganicCat(String name, String description,
             int exhaustion, int happiness, int waterNeed, int foodNeed,
-            VirtualPetShelter organicShelterCat) {
+            String shelterName) {
         super(name, description, exhaustion, happiness,
-                waterNeed, foodNeed);
-        this.organicShelterCat = organicShelterCat;
+                waterNeed, foodNeed, shelterName);
+        this.shelterName = shelterName;
     }
 
+    public OrganicCat() {
+
+    }
 
     // Getter Methods
     public long getId() {
@@ -36,8 +40,20 @@ public class OrganicCat extends Organic {
         return petType;
     }
 
-    public VirtualPetShelter getOrganicShelterCat() {
-        return organicShelterCat;
+    public String getShelterName() {
+        return shelterName;
+    }
+
+    public void setShelterName(String shelterName) {
+        this.shelterName = shelterName;
+    }
+
+    public VirtualPetShelter getShelter() {
+        return shelter;
+    }
+
+    public void setShelter(VirtualPetShelter shelter) {
+        this.shelter = shelter;
     }
 
 }
