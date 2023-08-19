@@ -7,8 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import com.wcci.virtualPetAPI.entities.RoboticCat;
+import com.wcci.virtualPetAPI.entities.RoboticDog;
 import com.wcci.virtualPetAPI.entities.VirtualPetShelter;
 import com.wcci.virtualPetAPI.entities.Volunteer;
+import com.wcci.virtualPetAPI.repositories.RoboticCatRepo;
+import com.wcci.virtualPetAPI.repositories.RoboticDogRepo;
 import com.wcci.virtualPetAPI.repositories.VirtualPetShelterRepo;
 import com.wcci.virtualPetAPI.repositories.VolunteerRepo;
 
@@ -19,6 +23,12 @@ public class Populator implements CommandLineRunner {
 
     @Autowired
     private VirtualPetShelterRepo shelterRepo;
+
+    @Autowired
+    private RoboticDogRepo roboDogRepo;
+
+    @Autowired
+    private RoboticCatRepo roboCatRepo;
 
     public void run(String... args) throws Exception {
         List<VirtualPetShelter> shelters = new ArrayList<VirtualPetShelter>();
@@ -50,6 +60,14 @@ public class Populator implements CommandLineRunner {
         VirtualPetShelter shelter5 = new VirtualPetShelter();
         shelter5.setShelterName("LAX Shelter");
         shelterRepo.save(shelter5);
+
+        RoboticDog roboticDog1 = new RoboticDog("Cookie", "Loves the zoomies", 0, 0, 0, 0, false, shelter5);
+        roboDogRepo.save(roboticDog1);
+        shelter5.getShelterPets().add(roboticDog1);
+
+        RoboticCat roboticCat1 = new RoboticCat("Cloe", "Loves Naps", 0, 0, 0, 0, shelter5);
+        roboCatRepo.save(roboticCat1);
+        shelter5.getShelterPets().add(roboticCat1);
 
     }
 }
