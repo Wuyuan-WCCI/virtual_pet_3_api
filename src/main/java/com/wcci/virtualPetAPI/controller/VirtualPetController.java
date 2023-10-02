@@ -41,7 +41,7 @@ public class VirtualPetController {
         this.virtualPetsServ.deletePet(id);
     }
 
-    @GetMapping("virtualpet")
+    @GetMapping("virtualpets")
     public List<VirtualPet> findAllPets() {
         return this.virtualPetsServ.getAllPets();
     }
