@@ -77,24 +77,27 @@ public class Populator implements CommandLineRunner {
         VirtualPetShelter shelter5 = new VirtualPetShelter(5, "LA Shelter", true, new ArrayList<>(), volunteers);
         shelterRepo.save(shelter5);
         shelters.add(4, shelter5);
-
+        System.out.println("\n================== Volunters ==================\n");
         for (Volunteer volunteer : volunteers) {
             System.out.println(volunteer);
 
         }
 
+        System.out.println("\n================== Shelters ==================\n");
+
         for (VirtualPetShelter shelter : shelters) {
             System.out.println(shelter);
         }
 
-        Map<Volunteer, List<VirtualPetShelter>> volunteerSheltersMap = new HashMap<>();
-        for (Volunteer volunteer : volunteers) {
-            List<VirtualPetShelter> volunteerShelters = new ArrayList<>();
-            for (VirtualPetShelter shelter : shelters) {
-                volunteerShelters.add(shelter);
-            }
-            volunteerSheltersMap.put(volunteer, volunteerShelters);
-        }
+        // Map<Volunteer, List<VirtualPetShelter>> volunteerSheltersMap = new
+        // HashMap<>();
+        // for (Volunteer volunteer : volunteers) {
+        // List<VirtualPetShelter> volunteerShelters = new ArrayList<>();
+        // for (VirtualPetShelter shelter : shelters) {
+        // volunteerShelters.add(shelter);
+        // }
+        // volunteerSheltersMap.put(volunteer, volunteerShelters);
+        // }
 
         volunteerRepo.saveAll(volunteers);
 
