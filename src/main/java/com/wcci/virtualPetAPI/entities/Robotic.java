@@ -12,8 +12,8 @@ public class Robotic extends VirtualPet {
 
     // Constructor
     public Robotic(String name, String description,
-            int exhaustion, int happiness, int oilNeed, int maintenanceNeed) {
-        super(name, description, exhaustion, happiness);
+            int exhaustion, int happiness, int oilNeed, int maintenanceNeed, String shelterName) {
+        super(name, description, exhaustion, happiness, shelterName);
         this.oilNeed = oilNeed;
         this.maintenanceNeed = maintenanceNeed;
     }
