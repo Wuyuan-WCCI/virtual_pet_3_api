@@ -16,7 +16,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 // @Transactional
 public class OrganicDog extends Organic {
 
-
     // Fields
     @Id
     @GeneratedValue
@@ -29,7 +28,7 @@ public class OrganicDog extends Organic {
     @Column(name = "hasBeenWalked")
     protected boolean hasBeenWalked;
 
-    @Column(name = "isCageClean")   
+    @Column(name = "isCageClean")
     protected boolean isCageClean;
 
     @JsonIgnore
@@ -38,18 +37,16 @@ public class OrganicDog extends Organic {
     private VirtualPetShelter organicShelterDog;
 
     // Constructor
-    public OrganicDog(String name, String description,int exhaustion, int happiness, int waterNeed, int foodNeed, 
-    boolean hasBeenWalked, boolean isCageClean,
-    VirtualPetShelter organicShelterDog) {
+    public OrganicDog(String name, String description, int exhaustion, int happiness, int waterNeed, int foodNeed,
+            boolean hasBeenWalked, boolean isCageClean, String shelterName) {
         super(name, description, exhaustion, happiness,
-                waterNeed, foodNeed);
+                waterNeed, foodNeed, shelterName);
         this.hasBeenWalked = hasBeenWalked;
         this.isCageClean = isCageClean;
-        this.organicShelterDog = organicShelterDog;
     }
 
-public OrganicDog(){
-}
+    public OrganicDog() {
+    }
 
     // Getter Methods
     public long getId() {
@@ -72,6 +69,7 @@ public OrganicDog(){
     public VirtualPetShelter getOrganicShelterDog() {
         return organicShelterDog;
     }
+
     public boolean isHasBeenWalked() {
         return this.hasBeenWalked;
     }
@@ -83,6 +81,5 @@ public OrganicDog(){
     public boolean getIsCageClean() {
         return this.isCageClean;
     }
-
 
 }

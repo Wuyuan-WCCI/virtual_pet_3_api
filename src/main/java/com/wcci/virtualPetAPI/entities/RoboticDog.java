@@ -18,11 +18,12 @@ public class RoboticDog extends Robotic {
     private VirtualPetShelter roboticShelterDog;
 
     // Constructor
-    public RoboticDog(String name, String description, int exhaustion, int happiness, int oilNeed, int maintenanceNeed,
-            boolean hasBeenWalked, VirtualPetShelter roboticShelterDog) {
-        super(name, description, exhaustion, happiness, oilNeed, maintenanceNeed);
+    public RoboticDog(String name, String description,
+            int exhaustion, int happiness, int oilNeed, int maintenanceNeed,
+            boolean hasBeenWalked, String shelterName) {
+        super(name, description, exhaustion, happiness,
+                oilNeed, maintenanceNeed, shelterName);
         this.hasBeenWalked = hasBeenWalked;
-        this.roboticShelterDog = roboticShelterDog;
     }
 
     public RoboticDog() {

@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-
 import com.wcci.virtualPetAPI.entities.RoboticCat;
 import com.wcci.virtualPetAPI.entities.RoboticDog;
 import com.wcci.virtualPetAPI.entities.VirtualPetShelter;
@@ -34,16 +33,16 @@ public class Populator implements CommandLineRunner {
     private VirtualPetShelterRepo shelterRepo;
 
     @Autowired
-    private RoboticDogRepo roboDogRepo;
-
-    @Autowired
-    private RoboticCatRepo roboCatRepo;
-  
-    @Autowired
     private OrganicDogRepo organicDogRepo;
 
     @Autowired
     private OrganicCatRepo organicCatRepo;
+
+    @Autowired
+    private RoboticCatRepo roboticCatRepo;
+
+    @Autowired
+    private RoboticDogRepo roboticDogRepo;
 
     public void run(String... args) throws Exception {
         List<VirtualPetShelter> shelters = new ArrayList<>();
@@ -101,31 +100,38 @@ public class Populator implements CommandLineRunner {
 
         volunteerRepo.saveAll(volunteers);
 
-        OrganicDog organicDog1 = new OrganicDog("Rocky", "friendly", 8, 3, 7, 8, false, true, shelter2);
+        OrganicDog organicDog1 = new OrganicDog("Rocky", "friendly", 0, 0, 0, 0, false, true,
+                shelter2.getShelterName());
         organicDogRepo.save(organicDog1);
         shelter2.getShelterPets().add(organicDog1);
 
-        OrganicDog organicDog2 = new OrganicDog("Ali", "quiet", 8, 3, 7, 8, false, true, shelter2);
+        OrganicDog organicDog2 = new OrganicDog("Ali", "quiet", 0, 0, 0, 0, false, true, shelter2.getShelterName());
         organicDogRepo.save(organicDog2);
         shelter2.getShelterPets().add(organicDog2);
 
-        OrganicCat organicCat1 = new OrganicCat("Garfield", "loves lasagna, hates Mondays", 9, 2, 7, 7, shelter1);
+        OrganicCat organicCat1 = new OrganicCat("Danny", "", 0, 0, 0, 0, shelter1.getShelterName());
         organicCatRepo.save(organicCat1);
         shelter1.getShelterPets().add(organicCat1);
 
-        OrganicCat organicCat2 = new OrganicCat("Hobbs", "enjoys time travel and building snowmen", 3, 9, 4, 4, shelter2);
+        OrganicCat organicCat2 = new OrganicCat("Tonny", "", 0, 0, 0, 0, shelter2.getShelterName());
         organicCatRepo.save(organicCat2);
         shelter2.getShelterPets().add(organicCat2);
 
+        RoboticCat roboticCat1 = new RoboticCat("Kitty", null, 0, 0, 0, 0, shelter3.getShelterName());
+        roboticCatRepo.save(roboticCat1);
+        shelter3.getShelterPets().add(roboticCat1);
 
-        RoboticDog roboticDog1 = new RoboticDog("Cookie", "Loves the zoomies", 0, 0, 0, 0, false, shelter5);
-        roboDogRepo.save(roboticDog1);
+        RoboticCat roboticCat2 = new RoboticCat("Mitty", null, 0, 0, 0, 0, shelter4.getShelterName());
+        roboticCatRepo.save(roboticCat2);
+        shelter4.getShelterPets().add(roboticCat2);
+
+        RoboticDog roboticDog1 = new RoboticDog("Mio", null, 0, 0, 0, 0, false, shelter5.getShelterName());
+        roboticDogRepo.save(roboticDog1);
         shelter5.getShelterPets().add(roboticDog1);
 
-        RoboticCat roboticCat1 = new RoboticCat("Cloe", "Loves Naps", 0, 0, 0, 0, shelter5);
-        roboCatRepo.save(roboticCat1);
-        shelter5.getShelterPets().add(roboticCat1);
+        RoboticDog roboticDog2 = new RoboticDog("Mio", null, 0, 0, 0, 0, false, shelter5.getShelterName());
+        roboticDogRepo.save(roboticDog2);
+        shelter5.getShelterPets().add(roboticDog2);
 
     }
-
 }
